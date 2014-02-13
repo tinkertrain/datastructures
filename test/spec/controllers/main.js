@@ -89,8 +89,19 @@ describe('Controller: MainCtrl', function () {
     // Collection
     describe('Collection', function() {
 
-      it('should have a clearList method', function() {
-        expect(scope.linkedList.clearList).toBeDefined();
+      it('should have a clear method', function() {
+        expect(scope.linkedList.clear).toBeDefined();
+      });
+
+      it('should clear the list with the clear method', function() {
+        scope.linkedList._head = null;
+        scope.linkedList._length = 0;
+        scope.linkedList.add('red');
+        scope.linkedList.add('blue');
+        scope.linkedList.add('green');
+        scope.linkedList.clear();
+        expect(scope.linkedList._head).toBeNull();
+        expect(scope.linkedList._length).toBe(0);
       });
 
       it('should have a length starting at 0', function() {

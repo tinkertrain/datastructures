@@ -47,8 +47,9 @@ angular.module('datastructuresApp')
       },
 
       /// Removes all the nodes from the list
-      clearList : function() {
-
+      clear : function() {
+        this._head = null;
+        this._length = 0;
       },
 
       /// List all the nodes from the list
