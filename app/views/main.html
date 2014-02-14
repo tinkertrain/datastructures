@@ -25,9 +25,9 @@
     <input type="text" ng-model="node.data" placeholder="red, blue, green or something like that…" focus-me="focusLinkedList">
     <menu role="toolbar">
       <button ng-click="linkedList.add(node.data); focusLinkedList = true;">Add</button>
-      <button ng-click="linkedList.remove(node.data)">Remove <small ng-if="node.data">({{node.data}})</small></button>
-      <button ng-click="linkedList.removeLast()">Remove Last</button>
-      <button ng-click="linkedList.clear()">Clear</button>
+      <button ng-click="linkedList.remove(node.data); focusLinkedList = true;">Remove <small ng-if="node.data">({{node.data}})</small></button>
+      <button ng-click="linkedList.removeLast(); focusLinkedList = true;">Remove Last</button>
+      <button ng-click="linkedList.clear(); focusLinkedList = true;">Clear</button>
     </menu>
   </div>
   </div>
