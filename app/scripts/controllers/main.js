@@ -14,29 +14,31 @@ angular.module('datastructuresApp')
     LinkedList.prototype = {
       /// Adds the specified node to the list
       add : function(data) {
-        var node = {
-          next: null,
-          data: data
-        };
-        var current;
+        if(data && data !== '') {
+          var node = {
+            next: null,
+            data: data
+          };
+          var current;
 
-        // If there are no nodes
-        if(this._head === null) {
-          this._head = node;
-        }
-        else {
-          if(this._head.next === null) {
-            this._head.next = node;
+          // If there are no nodes
+          if(this._head === null) {
+            this._head = node;
           }
           else {
-            current = this._head.next;
-            while(current.next) {
-              current = current.next;
+            if(this._head.next === null) {
+              this._head.next = node;
             }
-            current.next = node;
+            else {
+              current = this._head.next;
+              while(current.next) {
+                current = current.next;
+              }
+              current.next = node;
+            }
           }
+          this._length++;
         }
-        this._length++;
       },
 
       /// Removes a node from the list.
