@@ -84,6 +84,52 @@ describe('Controller: MainCtrl', function () {
         expect(scope.linkedList.remove).toBeDefined();
       });
 
+      it('should check if the data exists and return true or false accordingly', function() {
+        scope.linkedList.clear();
+        scope.linkedList.add('red');
+        scope.linkedList.add('blue');
+        expect(scope.linkedList.remove('red')).toBeTruthy();
+        expect(scope.linkedList.remove('yellow')).not.toBeTruthy();
+      });
+
+      it('should change the head if the node to be removed is the head', function() {
+        var temp = {
+          next: null,
+          data: 'blue'
+        };
+        scope.linkedList.clear();
+        scope.linkedList.add('red');
+        scope.linkedList.add('blue');
+        scope.linkedList.remove('red');
+        expect(scope.linkedList._head).toEqual(temp);
+      });
+
+      it('should remove any given nove from the list', function() {
+        var green = {
+          next: null,
+          data: 'green'
+        };
+        var blue = {
+          next: green,
+          data: 'blue'
+        };
+        var red = {
+          next: blue,
+          data: 'red'
+        };
+        var temp = {
+          data: 'red',
+          next: green
+        };
+
+        scope.linkedList.clear();
+        scope.linkedList.add('red');
+        scope.linkedList.add('blue');
+        scope.linkedList.add('green');
+        scope.linkedList.remove('blue');
+        expect(scope.linkedList._head).toEqual(temp);
+      });
+
       it('should have a removeLast method', function() {
         expect(scope.linkedList.removeLast).toBeDefined();
       });

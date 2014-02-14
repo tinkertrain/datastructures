@@ -43,11 +43,48 @@ angular.module('datastructuresApp')
       },
 
       /// Removes a node from the list.
-      remove : function(index) {
+      remove : function(data) {
+        var current;
+        var previous;
+        var found = false;
+
+        if(this._length > 0) {
+          // If there is only one node and it is to be deleted
+          if(this._head.data === data && this._length === 1) {
+            this.clear();
+            return true;
+          }
+          else {
+            // if removing the head but there are more nodes we need to change the head pointer
+            if(this._head.next !== null && this._head.data === data) {
+              this._head = this._head.next;
+              return true;
+            }
+            current = this._head;
+            while(current) {
+              if(current.data === data) {
+                found = true;
+                break;
+              }
+              previous = current;
+              current = current.next;
+            }
+            if(found) {
+              previous.next = current.next;
+              return true;
+            }
+            else {
+              return false;
+            }
+          }
+        }
+        else {
+          return false;
+        }
       },
 
       /// Removes a node from the list.
-      removeLast : function(index) {
+      removeLast : function() {
         var current;
         if(this._head === null) {
           return;
