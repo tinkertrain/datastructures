@@ -8,15 +8,26 @@
 </div>
 <div class="row">
   <div class="small-12">
-    <div class="panel callout">
-      <pre>{{linkedList | json}}</pre>
-    </div>
+  <div class="linked-list">
+    <h2>Linked List</h2>
+    <ul class="linked-list__graphic-representation">
+      <p ng-hide="linkedList.toArray().length > 0">Start playing with the list below!</p>
+      <li class="linked-list__node" ng-repeat="(key, value) in linkedList.toArray()">
+        <div class="linked-list__node__index">{{printIndex(key)}}</div>
+        {{value.data}}
+        <div class="linked-list__node__next">Next: {{value.next.data || 'null'}}</div>
+      </li>
+    </ul>
     <!-- <div class="panel">
       <pre>{{linkedList.toArray() | json}}</pre>
     </div> -->
-    <input type="text" ng-model="node.data">
-    <button ng-click="linkedList.add(node.data)">Add</button>
-    <button ng-click="linkedList.remove(node.data)">Remove</button>
-    <button ng-click="linkedList.removeLast()">Remove Last</button>
+    <input type="text" ng-model="node.data" placeholder="red, blue, green or something like that…">
+    <menu role="toolbar">
+      <button ng-click="linkedList.add(node.data); node.data = '';">Add</button>
+      <button ng-click="linkedList.remove(node.data)">Remove <small ng-if="node.data">({{node.data}})</small></button>
+      <button ng-click="linkedList.removeLast()">Remove Last</button>
+      <button ng-click="linkedList.clear()">Clear</button>
+    </menu>
+  </div>
   </div>
 </div>

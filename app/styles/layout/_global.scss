@@ -1,0 +1,43 @@
+/* apply a natural box layout model to all elements */
+*, *:before, *:after {
+  box-sizing: border-box;
+ }
+
+body {
+  background-color: $yellow;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+h1,
+h2,
+p {
+  margin: 0 0 15px 0;
+  padding: 0;
+}
+
+h1,
+h2 {
+  font-family: 'Montserrat', sans-serif;
+  color: $blue;
+}
+
+h1 {
+  & + p {
+    color: $blue;
+    margin-top: -15px;
+    text-indent: 5px;
+  }
+}
+
+h2 {
+  text-align: center;
+  background-color: darken($yellow, 10%);
+  box-shadow: 5px 5px 0 darken($yellow, 20%);
+  margin-bottom: 35px;
+}
+
+input[type="text"] {
+  width: 50%;
+  margin: 0 auto 20px;
+  border: 1px solid $blue-light;
+}

@@ -1,0 +1,12 @@
+menu[role="toolbar"] {
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  button {
+    margin-right: 5px;
+    padding: 0.6rem 0.95rem;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

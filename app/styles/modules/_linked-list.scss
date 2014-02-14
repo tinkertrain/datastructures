@@ -1,0 +1,60 @@
+.linked-list__graphic-representation {
+  list-style: none;
+  margin: 0;
+  list-style-position: inside;
+  width: 90%;
+  margin: 0 auto 1em;
+  padding: 1em;
+  min-height: 110px;
+  border: 1px dashed rgba($green-light, 0.7);
+  background-color: rgba(white, 0.3);
+  border-radius: 3px;
+  text-align: center;
+}
+.linked-list__node {
+  display: inline-block;
+  width: 20%;
+  height: 75px;
+  line-height: 72px;
+  text-align: center;
+  background-color: rgba($red, 1);
+  color: lighten($red, 40%);
+  box-shadow: inset -2px -2px 0 darken($red, 20%);
+  border-radius: 2px;
+  margin-right: 40px;
+  position: relative;
+  font-size: 20px;
+  &:nth-child(4n+1) {
+    margin-right: 0;
+  }
+  &:nth-child(5n+1) {
+    margin-top: 20px;
+  }
+}
+
+.linked-list__node__index,
+.linked-list__node__next {
+  position: absolute;
+  left: 0;
+  line-height: 15px;
+  font-size: 13px;
+}
+.linked-list__node__index {
+  top: 0;
+  height: 20px;
+  width: 40px;
+  padding: 3px;
+  padding-bottom: 3px;
+  text-align: center;
+  color: lighten($red, 20%);
+  border-bottom: 1px dashed lighten($red, 10%);
+  border-right: 1px dashed lighten($red, 10%);
+}
+.linked-list__node__next {
+  bottom: 2px;
+  background-color: lighten($red, 10%);
+  color: darken($red, 5%);
+  width: calc(100% - 2px);
+  text-align: right;
+  padding-right: 5px;
+}

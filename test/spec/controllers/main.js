@@ -26,10 +26,6 @@ describe('Controller: MainCtrl', function () {
       expect(scope.linkedList._head).toBeDefined();
     });
 
-    it('should have a tail', function() {
-      expect(scope.linkedList._tail).toBeDefined();
-    });
-
     // Add
     describe('Adding', function() {
 

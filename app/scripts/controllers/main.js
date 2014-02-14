@@ -7,9 +7,6 @@ angular.module('datastructuresApp')
       /// The first node in the list or null if empty
       this._head = null;
 
-      /// The last node in the list or null if empty
-      this._tail = null;
-
       /// The number of items currently in the list
       this._length = 0;
     };
@@ -139,5 +136,7 @@ angular.module('datastructuresApp')
     };
 
     $scope.linkedList = new LinkedList();
-
+    $scope.printIndex = function(key) {
+      return key === 0 ? 'Head' : key;
+    };
   });
