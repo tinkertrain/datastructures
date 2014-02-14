@@ -21,9 +21,9 @@
     <!-- <div class="panel">
       <pre>{{linkedList.toArray() | json}}</pre>
     </div> -->
-    <input type="text" ng-model="node.data" placeholder="red, blue, green or something like that…">
+    <input type="text" ng-model="node.data" placeholder="red, blue, green or something like that…" focus-me="focusLinkedList">
     <menu role="toolbar">
-      <button ng-click="linkedList.add(node.data); node.data = '';">Add</button>
+      <button ng-click="linkedList.add(node.data); focusLinkedList = true;">Add</button>
       <button ng-click="linkedList.remove(node.data)">Remove <small ng-if="node.data">({{node.data}})</small></button>
       <button ng-click="linkedList.removeLast()">Remove Last</button>
       <button ng-click="linkedList.clear()">Clear</button>

@@ -136,6 +136,7 @@ angular.module('datastructuresApp')
     };
 
     $scope.linkedList = new LinkedList();
+    $scope.focusLinkedList = true;
     $scope.printIndex = function(key) {
       return key === 0 ? 'Head' : key;
     };
