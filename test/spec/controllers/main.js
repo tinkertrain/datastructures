@@ -108,8 +108,42 @@ describe('Controller: MainCtrl', function () {
         expect(scope.linkedList._length).toBe(0);
       });
 
-      it('should have a method to list the nodes', function() {
-        expect(scope.linkedList.listNodes).toBeDefined();
+      describe('should have a method to convert the list to an array', function() {
+        it('should be defined', function() {
+          expect(scope.linkedList.toArray).toBeDefined();
+        });
+
+        it('should return an array', function() {
+          scope.linkedList.clear();
+          var temp = scope.linkedList.toArray();
+          var green = {
+            next: null,
+            data: 'green'
+          };
+          var blue = {
+            next: green,
+            data: 'blue'
+          };
+          var tempArr = [{
+            next: blue,
+            data: 'red'
+          },
+          {
+            next: green,
+            data: 'blue'
+          },
+          {
+            next: null,
+            data: 'green'
+          }
+          ];
+          expect(temp).toEqual([]);
+
+          scope.linkedList.add('red');
+          scope.linkedList.add('blue');
+          scope.linkedList.add('green');
+          expect(scope.linkedList.toArray()).toEqual(tempArr);
+        });
       });
 
       it('should have a method to retrieve a node', function() {

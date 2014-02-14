@@ -10,9 +10,11 @@
   <div class="small-12">
     <div class="panel callout">
       <pre>{{linkedList | json}}</pre>
-      <br>
-      <input type="text" ng-model="node.data">
-      <button ng-click="linkedList.add(node.data)">Add</button>
     </div>
+    <!-- <div class="panel">
+      <pre>{{linkedList.toArray() | json}}</pre>
+    </div> -->
+    <input type="text" ng-model="node.data">
+    <button ng-click="linkedList.add(node.data); linkedList.toArray()">Add</button>
   </div>
 </div>

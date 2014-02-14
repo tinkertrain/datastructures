@@ -52,9 +52,24 @@ angular.module('datastructuresApp')
         this._length = 0;
       },
 
-      /// List all the nodes from the list
-      listNodes : function() {
-
+      /// Convert the list to an array
+      toArray : function() {
+        var arr = [];
+        var current;
+        if(this._head !== null) {
+          current = this._head;
+          arr.push(current);
+          current = current.next;
+          while(current) {
+            arr.push(current);
+            current = current.next;
+          }
+        }
+        else {
+          arr = [];
+        }
+        console.log(arr);
+        return arr;
       },
 
       /// Retrieve an item
