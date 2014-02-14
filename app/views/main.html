@@ -15,6 +15,7 @@
       <pre>{{linkedList.toArray() | json}}</pre>
     </div> -->
     <input type="text" ng-model="node.data">
-    <button ng-click="linkedList.add(node.data); linkedList.toArray()">Add</button>
+    <button ng-click="linkedList.add(node.data)">Add</button>
+    <button ng-click="linkedList.removeLast()">Remove</button>
   </div>
 </div>

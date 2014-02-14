@@ -46,6 +46,30 @@ angular.module('datastructuresApp')
       remove : function(index) {
       },
 
+      /// Removes a node from the list.
+      removeLast : function(index) {
+        var current;
+        if(this._head === null) {
+          return;
+        }
+        else {
+          /// If there is only one node, clear the list
+          if(this._head.next === null) {
+            this.clear();
+          }
+          else {
+            current = this._head;
+            for(var i = 1; i < this._length-1; i++) {
+              if(current.next.next) {
+                current = current.next;
+              }
+            }
+            current.next = null;
+            this._length--;
+          }
+        }
+      },
+
       /// Removes all the nodes from the list
       clear : function() {
         this._head = null;
@@ -68,7 +92,6 @@ angular.module('datastructuresApp')
         else {
           arr = [];
         }
-        console.log(arr);
         return arr;
       },
 

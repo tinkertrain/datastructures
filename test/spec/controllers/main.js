@@ -83,6 +83,38 @@ describe('Controller: MainCtrl', function () {
       it('should have a remove method', function() {
         expect(scope.linkedList.remove).toBeDefined();
       });
+
+      it('should have a removeLast method', function() {
+        expect(scope.linkedList.removeLast).toBeDefined();
+      });
+      it('should clear the list if there is only one node', function() {
+        var green = {
+            next: null,
+            data: 'green'
+          };
+        scope.linkedList._head = green;
+        scope.linkedList.removeLast();
+        expect(scope.linkedList._head).toBeNull();
+        expect(scope.linkedList._length).toBe(0);
+      });
+      it('should decrease the length of the list', function() {
+        scope.linkedList.clear();
+        scope.linkedList.add('red');
+        scope.linkedList.add('blue');
+        scope.linkedList.removeLast();
+        expect(scope.linkedList._length).toBe(1);
+      });
+      it('should remove the last node in the list', function() {
+        var temp = {
+          next: null,
+          data: 'red'
+        };
+        scope.linkedList.clear();
+        scope.linkedList.add('red');
+        scope.linkedList.add('blue');
+        scope.linkedList.removeLast();
+        expect(scope.linkedList._head).toEqual(temp);
+      });
     });
 
 
